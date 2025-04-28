@@ -12,5 +12,11 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  }
+  },
+  plugins: [
+    {
+      resolve: "@rsc-labs/medusa-documents-v2",
+      options: {}
+    }
+  ]
 })
