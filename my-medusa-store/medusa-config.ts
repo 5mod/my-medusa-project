@@ -17,6 +17,16 @@ module.exports = defineConfig({
     {
       resolve: "@rsc-labs/medusa-documents-v2",
       options: {}
-    }
+    },
+    {
+      resolve: "@tsc_tech/medusa-plugin-notification-template",
+      options: {
+
+      }
+    },
+    {
+      resolve: "@tsc_tech/medusa-plugin-product-seo",
+      options: {},
+    },
   ]
 })
