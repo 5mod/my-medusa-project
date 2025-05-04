@@ -13,6 +13,12 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
   },
+  modules: [
+
+    {
+       resolve: "./src/modules/brand",
+    },
+  ],
   plugins: [
     {
       resolve: "@rsc-labs/medusa-documents-v2",
