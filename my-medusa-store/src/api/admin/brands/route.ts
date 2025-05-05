@@ -35,12 +35,22 @@ export const POST = async (
     res: MedusaResponse
   ) => {
     try {
-        const query = req.scope.resolve("query")
-        const { data: brands } = await query.graph({
-            entity: "brand",
-            fields: ["*", "products.*"],
-        })
-        res.json({ brands })
+      const query = req.scope.resolve("query")
+  
+      const { 
+        data: brands, 
+        metadata: { count, take, skip } = {},
+      } = await query.graph({
+        entity: "brand",
+        ...req.queryConfig,
+      })
+    
+      res.json({ 
+        brands,
+        count,
+        limit: take,
+        offset: skip,
+      })
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
